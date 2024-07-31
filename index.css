@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(39, 39, 39);
+    display: flex;
+}
+
+.container {
+    margin: auto;
+    width: 50%;
+}
+
+.div {
+
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: gray;
+}
+
+
+
+img {
+    max-height: 100%;
+    animation: rotate 3s ease-in-out both;
+    animation-iteration-count : infinite;
+    max-width: 100%;
+}
+
+@keyframes rotate {
+    50% {
+        transform: rotate(0);
+      }
+    100% {
+        transform: rotate(360deg);
+      }
+}
