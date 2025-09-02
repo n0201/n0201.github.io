@@ -1,17 +1,66 @@
+ .row {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 15px;
+     margin-top: 10px;
+     justify-content: flex-start;
+     width: 100%;
+ }
+
 body {
-    background-color: rgb(8, 9, 39);
+    min-height: 100vh;
+    margin: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Animated gradient background */
+    background: linear-gradient(-45deg, #1DEDA2, #080927, #3a1c71, #ffaf7b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
 
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
 .container {
     margin: auto;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 600px;
+    padding: 2rem 2.5rem;
+    background: rgba(20, 20, 40, 0.6);
+    border: 2px solid #1DEDA2;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.5s, box-shadow 0.5s;
+    align-items: center;
+    justify-content: center;
 }
 
 .div {
-    margin: auto;
-    width: 100%;
+    padding: 8px;
+    border: 2px solid #1DEDA2;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(29,237,162,0.15) 0%, rgba(20,20,40,0.7) 100%);
+    box-shadow: 0 2px 12px 0 rgba(29, 237, 162, 0.15), 0 1.5px 8px 0 rgba(31, 38, 135, 0.12);
+    position: relative;
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    backdrop-filter: blur(8px);
+}
+
+.div:hover {
+    background: linear-gradient(135deg, rgba(29,237,162,0.25) 0%, rgba(20,20,40,0.8) 100%);
+    box-shadow: 0 8px 32px 0 rgba(29, 237, 162, 0.25), 0 2px 16px 0 rgba(31, 38, 135, 0.18);
+    border-color: #fff;
 }
 
 h1 {
@@ -19,12 +68,19 @@ h1 {
     font-weight: 900;
     font-size: 50px;
     text-align: center;
-    color: white;
+    min-height: 65px; /* Prevents container resize during animation */
+    color: #fff;
+    text-shadow: 0 2px 8px #1DEDA2, 0 1px 0 #000, 0 0 6px #080927;
+    letter-spacing: 1px;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
+.img2 {
+    max-width: 118px;
+    height: auto;
+}
 
-
-img {
+.img {
     animation: rotate 3s ease-in-out both;
     animation-iteration-count : infinite;
     padding-left: 35%;
