@@ -1,4 +1,4 @@
-// Typewriter effect for h1
+// Enhanced typewriter effect with smooth animations
 let typewriterElement;
 const phrases = [
   'N0201',
@@ -6,6 +6,8 @@ const phrases = [
   'sudo mka bacon',
   'nohello.com!',
   'When new bliss build?',
+  'Welcome!',
+  'Connect with me →',
 ];
 
 let phraseIndex = 0;
@@ -17,24 +19,32 @@ function typeWriter() {
     typewriterElement = document.getElementById('typewriter');
     if (!typewriterElement) return;
   }
+  
   const currentPhrase = phrases[phraseIndex];
   let displayText = currentPhrase.substring(0, letterIndex);
-  typewriterElement.innerHTML = `<span style='color:#1DEDA2'>${displayText}</span>`;
+  
+  // Clean typewriter without blinking cursor - looks much smoother
+  typewriterElement.innerHTML = `<span style='
+    color: #1DEDA2;
+    display: inline-block;
+    text-shadow: 0 0 10px #1DEDA2, 0 0 15px rgba(29, 237, 162, 0.5);
+    letter-spacing: 0.5px;
+  '>${displayText}</span>`;
 
   if (!isDeleting && letterIndex < currentPhrase.length) {
     letterIndex++;
-    setTimeout(typeWriter, 100);
+    setTimeout(typeWriter, 70); // Smooth typing speed
   } else if (isDeleting && letterIndex > 0) {
     letterIndex--;
-    setTimeout(typeWriter, 50);
+    setTimeout(typeWriter, 35); // Smooth deletion speed
   } else {
     if (!isDeleting) {
       isDeleting = true;
-      setTimeout(typeWriter, 1200);
+      setTimeout(typeWriter, 1800); // Pause to read
     } else {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
-      setTimeout(typeWriter, 400);
+      setTimeout(typeWriter, 600); // Pause between phrases
     }
   }
 }
