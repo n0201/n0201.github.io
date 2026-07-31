@@ -1,20 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>sudo mka bacon</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#05060a">
+  <meta name="description" content="N0201 — all my links in one place. Find me on GitHub, Telegram, X and Bliss.">
+
+  <meta property="og:title" content="N0201 — sudo mka bacon">
+  <meta property="og:description" content="All my links in one place — GitHub, Telegram, X and Bliss.">
+  <meta property="og:image" content="bacon.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+
+  <title>sudo mka bacon</title>
+
+  <link rel="icon" href="bacon.png">
+  <link rel="apple-touch-icon" href="bacon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="starfield.js" defer></script>
+  <script src="index.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1 id="typewriter"></h1>
-        <img src="bacon.png" alt="Bacon" class="img">
-        <div class="row">
-            <a href="https://github.com/n0201" target="_blank" style="text-decoration:none;"><div class="div"><img src="Github.png" alt="Github" class="img2"></div></a>
-            <a href="https://t.me/max_n0201" target="_blank" style="text-decoration:none;"><div class="div"><img src="Telegram.png" alt="Telegram" class="img2"></div></a>
-            <a href="https://t.me/BlissSupportCupid" target="_blank" style="text-decoration:none;"><div class="div"><img src="bliss.png" alt="Bliss" class="img2"></div></a>
-            <a href="https://x.com/n0201Git" target="_blank" style="text-decoration:none;"><div class="div"><img src="X.png" alt="X" class="img2"></div></a>
-        </div>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <main class="terminal-window" id="terminalWindow">
+    <div class="terminal-titlebar">
+      <div class="terminal-dots">
+        <button type="button" class="dot dot-red" id="dotRed" aria-label="Close button (it's decorative — nothing closes)"></button>
+        <span class="dot dot-yellow" aria-hidden="true"></span>
+        <span class="dot dot-green" aria-hidden="true"></span>
+      </div>
+      <span class="terminal-title">n0201@web:~</span>
     </div>
+
+    <div class="terminal-body">
+      <img src="bacon.png" alt="Bacon, the site mascot" class="hero-image" width="130" height="130">
+
+      <h1 class="prompt-line">
+        <span class="prompt" aria-hidden="true">guest@n0201:~$</span>
+        <span id="typewriter" class="typed">Welcome!</span><span class="cursor" aria-hidden="true">&#9612;</span>
+      </h1>
+
+      <div class="row" role="list" aria-label="Social links">
+        <div class="link-item" role="listitem">
+          <a href="https://github.com/n0201" target="_blank" rel="noopener noreferrer" class="link-card" data-brand="github" aria-label="GitHub">
+            <img src="Github.png" alt="" class="link-icon" width="70" height="70" loading="lazy">
+            <span class="link-label" aria-hidden="true">GitHub</span>
+          </a>
+          <div class="chip-row">
+            <button type="button" class="copy-chip" data-url="https://github.com/n0201" data-label="GitHub link" aria-label="Copy GitHub link">
+              <span aria-hidden="true">&#10697;</span>
+            </button>
+            <button type="button" class="qr-chip" data-url="https://github.com/n0201" data-label="GitHub" aria-label="Show QR code for GitHub" aria-haspopup="dialog" aria-expanded="false">
+              <span aria-hidden="true">&#9638;</span>
+            </button>
+          </div>
+        </div>
+        <div class="link-item" role="listitem">
+          <a href="https://t.me/max_n0201" target="_blank" rel="noopener noreferrer" class="link-card" data-brand="telegram" aria-label="Telegram">
+            <img src="Telegram.png" alt="" class="link-icon" width="70" height="70" loading="lazy">
+            <span class="link-label" aria-hidden="true">Telegram</span>
+          </a>
+          <div class="chip-row">
+            <button type="button" class="copy-chip" data-url="https://t.me/max_n0201" data-label="Telegram link" aria-label="Copy Telegram link">
+              <span aria-hidden="true">&#10697;</span>
+            </button>
+            <button type="button" class="qr-chip" data-url="https://t.me/max_n0201" data-label="Telegram" aria-label="Show QR code for Telegram" aria-haspopup="dialog" aria-expanded="false">
+              <span aria-hidden="true">&#9638;</span>
+            </button>
+          </div>
+        </div>
+        <div class="link-item" role="listitem">
+          <a href="https://t.me/BlissSupportCupid" target="_blank" rel="noopener noreferrer" class="link-card" data-brand="bliss" aria-label="Bliss support">
+            <img src="bliss.png" alt="" class="link-icon" width="70" height="70" loading="lazy">
+            <span class="link-label" aria-hidden="true">Bliss</span>
+          </a>
+          <div class="chip-row">
+            <button type="button" class="copy-chip" data-url="https://t.me/BlissSupportCupid" data-label="Bliss support link" aria-label="Copy Bliss support link">
+              <span aria-hidden="true">&#10697;</span>
+            </button>
+            <button type="button" class="qr-chip" data-url="https://t.me/BlissSupportCupid" data-label="Bliss support" aria-label="Show QR code for Bliss support" aria-haspopup="dialog" aria-expanded="false">
+              <span aria-hidden="true">&#9638;</span>
+            </button>
+          </div>
+        </div>
+        <div class="link-item" role="listitem">
+          <a href="https://x.com/n0201Git" target="_blank" rel="noopener noreferrer" class="link-card" data-brand="x" aria-label="X, formerly Twitter">
+            <img src="X.png" alt="" class="link-icon" width="70" height="70" loading="lazy">
+            <span class="link-label" aria-hidden="true">X</span>
+          </a>
+          <div class="chip-row">
+            <button type="button" class="copy-chip" data-url="https://x.com/n0201Git" data-label="X link" aria-label="Copy X link">
+              <span aria-hidden="true">&#10697;</span>
+            </button>
+            <button type="button" class="qr-chip" data-url="https://x.com/n0201Git" data-label="X" aria-label="Show QR code for X" aria-haspopup="dialog" aria-expanded="false">
+              <span aria-hidden="true">&#9638;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="terminal-footer">
+        <div class="footer-actions">
+          <button type="button" id="copyLinkBtn" class="copy-btn">
+            <span aria-hidden="true">&#10697;</span> copy link
+          </button>
+          <button type="button" id="qrToggleBtn" class="copy-btn" aria-expanded="false" aria-controls="qrPanel">
+            <span aria-hidden="true">&#9638;</span> QR code
+          </button>
+        </div>
+        <span id="uptime" class="uptime">status: online</span>
+      </footer>
+
+      <div id="qrPanel" class="qr-panel">
+        <div id="qrCode" class="qr-code"></div>
+        <p class="qr-caption">Scan to open this page on another device</p>
+      </div>
+
+      <p class="shortcuts-hint">press <kbd>?</kbd> for keyboard shortcuts</p>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="qrPopover" class="qr-popover" role="dialog" aria-label="QR code" aria-hidden="true">
+    <button type="button" class="qr-popover-close" id="qrPopoverClose" aria-label="Close QR code">&times;</button>
+    <div id="qrPopoverCode" class="qr-code"></div>
+    <p id="qrPopoverCaption" class="qr-caption"></p>
+  </div>
+
+  <div id="shortcutsOverlay" class="shortcuts-overlay" aria-hidden="true">
+    <div class="shortcuts-panel" role="dialog" aria-label="Keyboard shortcuts">
+      <button type="button" class="qr-popover-close" id="shortcutsClose" aria-label="Close keyboard shortcuts">&times;</button>
+      <h2 class="shortcuts-title">keyboard shortcuts</h2>
+      <ul class="shortcuts-list">
+        <li><kbd>g</kbd> open GitHub</li>
+        <li><kbd>t</kbd> open Telegram</li>
+        <li><kbd>b</kbd> open Bliss support</li>
+        <li><kbd>x</kbd> open X</li>
+        <li><kbd>c</kbd> copy profile link</li>
+        <li><kbd>q</kbd> toggle QR code</li>
+        <li><kbd>?</kbd> toggle this menu</li>
+      </ul>
+    </div>
+  </div>
+
 </body>
 </html>

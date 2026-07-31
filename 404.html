@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#05060a">
+  <meta name="robots" content="noindex">
+  <title>404 — not found | sudo mka bacon</title>
+
+  <link rel="icon" href="bacon.png">
+  <link rel="apple-touch-icon" href="bacon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css">
+  <script src="starfield.js" defer></script>
+  <script src="404.js" defer></script>
+</head>
+<body>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <main class="terminal-window">
+    <div class="terminal-titlebar">
+      <div class="terminal-dots">
+        <span class="dot dot-red" aria-hidden="true"></span>
+        <span class="dot dot-yellow" aria-hidden="true"></span>
+        <span class="dot dot-green" aria-hidden="true"></span>
+      </div>
+      <span class="terminal-title">n0201@web:~</span>
+    </div>
+
+    <div class="terminal-body">
+      <p class="error-line">
+        <span class="prompt" aria-hidden="true">guest@n0201:~$</span> cd <span class="typed">/requested-page</span>
+      </p>
+      <p class="error-line error-output">bash: cd: /requested-page: No such file or directory</p>
+
+      <p class="error-code">404</p>
+
+      <a href="index.html" class="home-link">cd ~</a>
+    </div>
+  </main>
+
+</body>
+</html>
